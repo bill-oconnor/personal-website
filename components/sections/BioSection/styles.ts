@@ -5,12 +5,6 @@ export const useStyles = createStyles((_theme, _params, _createRef) => ({
     width: "100%",
     // height: 60vh,
     minHeight: 400,
-
-    border: "1px solid red",
-
-    "& > div": {
-      height: "100%",
-    },
   },
 
   content: {

@@ -26,9 +26,26 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
       id={title}
       {...htmlProps}
     >
-      <Box p="xs">
+      <Box
+        p="xs"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          width: "100%",
+        }}
+      >
         {title ? (
-          <Paper p="xs">
+          <Paper
+            py="md"
+            px="lg"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              flex: 1,
+              width: "100%",
+            }}
+          >
             <Title className="section-title" order={3} mb="md">
               {title}
             </Title>

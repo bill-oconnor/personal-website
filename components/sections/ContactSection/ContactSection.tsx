@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Stack,
@@ -49,7 +50,7 @@ export const ContactSection = (props: IProps) => {
       title="Contact"
       backgroundImage="https://www.toptal.com/designers/subtlepatterns/uploads/tactile_noise.png"
     >
-      <Container>
+      <Box px="xl">
         <Title order={2}>{content?.prompt}</Title>
         <Text>{content?.subPrompt}</Text>
         <form onSubmit={form.onSubmit((values) => console.log(values))}>
@@ -61,7 +62,7 @@ export const ContactSection = (props: IProps) => {
             </Button>
           </Stack>
         </form>
-      </Container>
+      </Box>
     </Section>
   );
 };
