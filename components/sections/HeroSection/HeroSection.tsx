@@ -1,13 +1,21 @@
 import { Container, Text, Title } from "@mantine/core";
 import React from "react";
-import styles from "./styles.module.scss";
+import { useStyles } from "./styles";
 
-export const HeroSection = () => {
+export interface IProps {
+  title: string;
+  subtitle: string;
+}
+
+export const HeroSection = (props: IProps) => {
+  const { title, subtitle } = props;
+  const { classes } = useStyles();
+
   return (
-    <section className={styles.HeroSection}>
+    <section className={classes.heroSection}>
       <Container>
-        <Title order={1}>{"// Content for hero.title"}</Title>
-        <Text>{"// Content for hero.description"}</Text>
+        <Title order={1}>{title}</Title>
+        <Text weight={700}>{subtitle}</Text>
       </Container>
     </section>
   );

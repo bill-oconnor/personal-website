@@ -9,9 +9,9 @@ enum TabName {
   FUTURE = "Where I'm Going",
 }
 
-export const AboutSection = () => {
+export const BioSection = () => {
   return (
-    <section className={styles.AboutSection}>
+    <section className={styles.BioSection}>
       <Paper>
         <Container>
           <div>

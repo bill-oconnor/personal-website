@@ -12,7 +12,7 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
   children,
 }) => {
   return (
-    <section className={classNames(styles.Section)}>
+    <section className={classNames(styles.Section)} id={title}>
       {title ? <Title order={3}>{title}</Title> : null}
       {children}
     </section>
