@@ -6,6 +6,7 @@ import { HeroSection } from "../components/sections/HeroSection";
 import styles from "../styles/Home.module.css";
 import { ContactSection } from "../components/sections/ContactSection/ContactSection";
 import { ResourcesSection } from "../components/sections/ResourcesSection";
+import { Footer } from "../components/common/layout/Footer/Footer";
 
 interface IProps {
   posts: any;
@@ -31,18 +32,12 @@ const Home: NextPage<IProps> = (props: IProps) => {
         {/* Hero Section */}
 
         <main className={styles.main}>
-          <HeroSection content={content?.hero?.content} />
-          {/* About Section */}
-          <BioSection content={content?.bio?.content} />
-
-          {/* Blog Section */}
-          <ResourcesSection content={content?.bio?.content} />
-
-          {/* Contact section */}
-          <ContactSection content={content?.bio?.content} />
+          <HeroSection content={content?.hero} />
+          <BioSection content={content?.bio} />
+          <ResourcesSection content={content?.bio} />
+          <ContactSection content={content?.contact} />
+          <Footer />
         </main>
-
-        <footer className={styles.footer}></footer>
       </div>
     </MantineProvider>
   );
