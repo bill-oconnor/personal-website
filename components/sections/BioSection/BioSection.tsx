@@ -23,9 +23,9 @@ export const BioSection = (props: IProps) => {
   const { content } = props;
 
   return (
-    <Section className={classes.bioSection}>
+    <Section id="bio" className={classes.bioSection}>
       <Paper>
-        <Container>
+        <Container ml={0}>
           <div>
             <Tabs
               color={"orange"}
@@ -35,9 +35,15 @@ export const BioSection = (props: IProps) => {
               variant="pills"
             >
               <Tabs.List>
-                <Tabs.Tab value={TabName.BIO}>{TabName.BIO}</Tabs.Tab>
-                <Tabs.Tab value={TabName.CURRENT}>{TabName.CURRENT}</Tabs.Tab>
-                <Tabs.Tab value={TabName.FUTURE}>{TabName.FUTURE}</Tabs.Tab>
+                <Tabs.Tab value={TabName.BIO}>
+                  <Text weight={700}>{TabName.BIO}</Text>
+                </Tabs.Tab>
+                <Tabs.Tab value={TabName.CURRENT}>
+                  <Text weight={700}>{TabName.CURRENT}</Text>
+                </Tabs.Tab>
+                <Tabs.Tab value={TabName.FUTURE}>
+                  <Text weight={700}>{TabName.FUTURE}</Text>
+                </Tabs.Tab>
               </Tabs.List>
 
               <Tabs.Panel className={classes.content} value={TabName.BIO}>
