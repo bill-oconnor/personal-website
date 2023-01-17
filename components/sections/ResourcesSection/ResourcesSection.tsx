@@ -1,20 +1,25 @@
 import { Badge, Card, Group, Paper, Stack, Text } from "@mantine/core";
 import { Blog, Content, Course, Project } from "../../../lib/types/Content";
 import { Section } from "../../common/layout/Section";
-import { ResourceSection, ResourceRenderProps } from "./ResourceSection";
-import Image from "next/image";
+import {
+  ResourceSection,
+  ResourceRenderProps,
+  EmptyResourceSection,
+} from "./ResourceSection";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { useStyles } from "./styles";
+import { ResourceDetailCard } from "./ResourceDetailCard";
 
 interface ResourcesSectionContent {
   blogs: [];
   projects: [];
-  resources: [];
+  courses: [];
 }
 export type IProps = Content<ResourcesSectionContent>;
 
-export const ResourcesSection = (_props: IProps) => {
+export const ResourcesSection = (props: IProps) => {
   const { classes } = useStyles();
+  const { content } = props;
 
   return (
     <Section
@@ -26,7 +31,17 @@ export const ResourcesSection = (_props: IProps) => {
         <ResourceSection
           id="projects"
           title="Projects"
-          renderChildren={(renderProps: ResourceRenderProps<Project>) => <></>}
+          renderChildren={(renderProps: ResourceRenderProps<Project>) => {
+            return content?.projects?.length ? (
+              <>
+                {content.projects.map((p: Project) => (
+                  <ResourceCard key={p.id} resource={p} />
+                ))}
+              </>
+            ) : (
+              <EmptyResourceSection resourceName="projects" />
+            );
+          }}
           renderResourceDetail={(projectData: Project) => {
             return <ResourceCard resource={projectData} />;
           }}
@@ -34,15 +49,35 @@ export const ResourcesSection = (_props: IProps) => {
         <ResourceSection
           id="blogs"
           title="Blogs + Essays"
-          renderChildren={(renderProps: ResourceRenderProps<Blog>) => <></>}
+          renderChildren={(renderProps: ResourceRenderProps<Blog>) => {
+            return content?.blogs?.length ? (
+              <>
+                {content.blogs.map((b: Blog) => (
+                  <ResourceCard key={b.id} resource={b} />
+                ))}
+              </>
+            ) : (
+              <EmptyResourceSection resourceName="blog posts" />
+            );
+          }}
           renderResourceDetail={(blogData: Blog) => {
-            return <ResourceCard resource={blogData} />;
+            return <ResourceDetailCard resource={blogData} />;
           }}
         />
         <ResourceSection
           id="courses"
           title="Courses + eBooks"
-          renderChildren={(renderProps: ResourceRenderProps<Course>) => <></>}
+          renderChildren={(renderProps: ResourceRenderProps<Course>) => {
+            return content?.courses?.length ? (
+              <>
+                {content.courses.map((c: Course) => (
+                  <ResourceCard key={c.id} resource={c} />
+                ))}
+              </>
+            ) : (
+              <EmptyResourceSection resourceName="courses" />
+            );
+          }}
           renderResourceDetail={(courseData: Course) => {
             return <ResourceCard resource={courseData} />;
           }}

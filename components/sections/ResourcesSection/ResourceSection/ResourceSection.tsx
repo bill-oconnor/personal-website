@@ -1,4 +1,4 @@
-import { Paper, Title } from "@mantine/core";
+import { Container, Paper, Title } from "@mantine/core";
 import { useState } from "react";
 
 export type RenderProps<T> = {
@@ -21,13 +21,13 @@ export function ResourceSection<ResourceDataFormat>(
 
   return (
     <Paper id={id} withBorder>
-      <Title p="xs" underline order={4}>
+      <Title p="xs" underline align="center" order={4}>
         {title}
       </Title>
       {selectedResource && renderResourceDetail
         ? renderResourceDetail(selectedResource)
         : null}
-      {renderChildren({ setSelectedResource })}
+      <Container>{renderChildren({ setSelectedResource })}</Container>
     </Paper>
   );
 }
