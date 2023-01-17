@@ -1,4 +1,4 @@
-import { CSSObject, Title } from "@mantine/core";
+import { Box, CSSObject, Paper, Title } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import classNames from "classnames";
 import { useStyles } from "./styles";
@@ -24,8 +24,18 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
       className={classNames([classes.section, className].filter((i) => !!i))}
       id={title}
     >
-      {title ? <Title order={3}>{title}</Title> : null}
-      {children}
+      <Box p="xs">
+        {title ? (
+          <Paper p="xs">
+            <Title className="section-title" order={3} mb="md">
+              {title}
+            </Title>
+            {children}
+          </Paper>
+        ) : (
+          children
+        )}
+      </Box>
     </section>
   );
 };

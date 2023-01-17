@@ -6,7 +6,9 @@ export const useStyles = createStyles<"section", any>((theme, params) => {
       width: "100vw",
       padding: "2rem",
       display: "flex",
-      justifyContent: "center",
+      flexDirection: "column",
+      // justifyContent: "center",
+      alignItems: "center",
 
       "> *": {
         maxWidth: theme.other.contentWidth,
