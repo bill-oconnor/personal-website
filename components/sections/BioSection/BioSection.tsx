@@ -19,9 +19,7 @@ export type IProps = Content<BioSectionContent>;
 
 export const BioSection = (props: IProps) => {
   const { classes } = useStyles();
-  const {
-    content: { past, present, future },
-  } = props;
+  const { content } = props;
 
   return (
     <section className={classes.bioSection}>
@@ -45,7 +43,7 @@ export const BioSection = (props: IProps) => {
                 <ScrollArea>
                   <Container>
                     <Stack>
-                      {past.chunks.map((chunk, i) => (
+                      {content?.past?.chunks?.map((chunk, i) => (
                         <Text key={`past-${i}`}>{chunk}</Text>
                       ))}
                     </Stack>
@@ -56,7 +54,7 @@ export const BioSection = (props: IProps) => {
                 <ScrollArea>
                   <Container>
                     <Stack>
-                      {present.chunks.map((chunk, i) => (
+                      {content?.present?.chunks?.map((chunk, i) => (
                         <Text key={`present-${i}`}>{chunk}</Text>
                       ))}
                     </Stack>
@@ -67,7 +65,7 @@ export const BioSection = (props: IProps) => {
                 <ScrollArea>
                   <Container>
                     <Stack>
-                      {future.chunks.map((chunk, i) => (
+                      {content?.future?.chunks?.map((chunk, i) => (
                         <Text key={`future-${i}`}>{chunk}</Text>
                       ))}
                     </Stack>

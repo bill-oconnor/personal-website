@@ -7,16 +7,14 @@ export interface IProps {
 }
 
 export const HeroSection = (props: IProps) => {
-  const {
-    content: { title, subtitle },
-  } = props;
+  const { content } = props;
   const { classes } = useStyles();
 
   return (
     <section className={classes.heroSection}>
       <Container>
-        <Title order={1}>{title}</Title>
-        <Text weight={700}>{subtitle}</Text>
+        <Title order={1}>{content?.title ?? ""}</Title>
+        <Text weight={700}>{content?.subtitle ?? ""}</Text>
       </Container>
     </section>
   );
