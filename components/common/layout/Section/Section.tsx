@@ -1,18 +1,29 @@
-import { Title } from "@mantine/core";
+import { CSSObject, Title } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
-import styles from "./styles.module.scss";
 import classNames from "classnames";
+import { useStyles } from "./styles";
 
-interface IProps {
+interface IProps extends React.HTMLProps<HTMLDivElement> {
   title?: string;
+  backgroundImage?: string;
+  styleParams?: CSSObject;
+  className?: string;
 }
 
 export const Section: React.FC<PropsWithChildren<IProps>> = ({
   title,
   children,
+  styleParams = {},
+  className,
+  ...htmlProps
 }) => {
+  const { classes } = useStyles(styleParams);
+
   return (
-    <section className={classNames(styles.Section)} id={title}>
+    <section
+      className={classNames([classes.section, className].filter((i) => !!i))}
+      id={title}
+    >
       {title ? <Title order={3}>{title}</Title> : null}
       {children}
     </section>

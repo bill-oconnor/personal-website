@@ -1,5 +1,6 @@
 import { Container, Text, Title } from "@mantine/core";
 import React from "react";
+import { Section } from "../../common/layout/Section";
 import { useStyles } from "./styles";
 
 export interface IProps {
@@ -11,11 +12,13 @@ export const HeroSection = (props: IProps) => {
   const { classes } = useStyles();
 
   return (
-    <section className={classes.heroSection}>
+    <Section className={classes.heroSection}>
       <Container>
         <Title order={1}>{content?.title ?? ""}</Title>
-        <Text weight={700}>{content?.subtitle ?? ""}</Text>
+        <Text size="xl" weight={700}>
+          {content?.subtitle ?? ""}
+        </Text>
       </Container>
-    </section>
+    </Section>
   );
 };

@@ -1,6 +1,7 @@
 import { Container, Paper, ScrollArea, Stack, Tabs, Text } from "@mantine/core";
 import React, { useState } from "react";
 import { Content } from "../../../lib/types/Content";
+import { Section } from "../../common/layout/Section";
 import { useStyles } from "./styles";
 
 enum TabName {
@@ -22,7 +23,7 @@ export const BioSection = (props: IProps) => {
   const { content } = props;
 
   return (
-    <section className={classes.bioSection}>
+    <Section className={classes.bioSection}>
       <Paper>
         <Container>
           <div>
@@ -76,6 +77,6 @@ export const BioSection = (props: IProps) => {
           </div>
         </Container>
       </Paper>
-    </section>
+    </Section>
   );
 };

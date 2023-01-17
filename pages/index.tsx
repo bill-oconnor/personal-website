@@ -4,7 +4,6 @@ import Head from "next/head";
 import { BioSection } from "../components/sections/BioSection";
 import { HeroSection } from "../components/sections/HeroSection";
 import styles from "../styles/Home.module.css";
-import { BlogSection } from "../components/sections/Blog Section/BlogSection";
 import { ContactSection } from "../components/sections/ContactSection/ContactSection";
 import { ResourcesSection } from "../components/sections/ResourcesSection";
 
@@ -17,7 +16,11 @@ const Home: NextPage<IProps> = (props: IProps) => {
   const { posts, content } = props;
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{ other: { contentWidth: 1200 } }}
+    >
       <div>
         <Head>
           <title>Create Next App</title>
@@ -26,8 +29,9 @@ const Home: NextPage<IProps> = (props: IProps) => {
         </Head>
 
         {/* Hero Section */}
-        <HeroSection content={content?.hero?.content} />
+
         <main className={styles.main}>
+          <HeroSection content={content?.hero?.content} />
           {/* About Section */}
           <BioSection content={content?.bio?.content} />
 
