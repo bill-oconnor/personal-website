@@ -15,14 +15,16 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
   children,
   styleParams = {},
   className,
+  backgroundImage,
   ...htmlProps
 }) => {
-  const { classes } = useStyles(styleParams);
+  const { classes } = useStyles({ backgroundImage });
 
   return (
     <section
       className={classNames([classes.section, className].filter((i) => !!i))}
       id={title}
+      {...htmlProps}
     >
       <Box p="xs">
         {title ? (
