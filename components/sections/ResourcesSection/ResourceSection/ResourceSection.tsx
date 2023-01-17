@@ -20,7 +20,7 @@ export function ResourceSection<ResourceDataFormat>(
     useState<ResourceDataFormat | null>(null);
 
   return (
-    <Paper id={id} withBorder>
+    <Paper id={id} withBorder mb="xs">
       <Title p="xs" underline align="center" order={4}>
         {title}
       </Title>
