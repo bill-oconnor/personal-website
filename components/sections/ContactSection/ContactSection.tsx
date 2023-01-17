@@ -1,7 +1,11 @@
 import { Container, Text, Title } from "@mantine/core";
 import React from "react";
+import { Content } from "../../../lib/types/Content";
 
-export const ContactSection = () => {
+interface ContactSectionContent {}
+export type IProps = Content<ContactSectionContent>;
+
+export const ContactSection = (_props: IProps) => {
   return (
     <section>
       <Container>

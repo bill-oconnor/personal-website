@@ -1,10 +1,12 @@
 import { MantineProvider } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { BioSection } from "../components/sections/BioSection/BioSection";
-import { HeroSection } from "../components/sections/HeroSection/HeroSection";
+import { BioSection } from "../components/sections/BioSection";
+import { HeroSection } from "../components/sections/HeroSection";
 import styles from "../styles/Home.module.css";
 import { BlogSection } from "../components/sections/Blog Section/BlogSection";
+import { ContactSection } from "../components/sections/ContactSection/ContactSection";
+import { ResourcesSection } from "../components/sections/ResourcesSection";
 
 interface IProps {
   posts: any;
@@ -24,15 +26,16 @@ const Home: NextPage<IProps> = (props: IProps) => {
         </Head>
 
         {/* Hero Section */}
-        <HeroSection />
+        <HeroSection content={content?.hero?.content} />
         <main className={styles.main}>
           {/* About Section */}
-          <BioSection />
+          <BioSection content={content?.bio?.content} />
 
           {/* Blog Section */}
-          <BlogSection posts={posts} />
+          <ResourcesSection content={content?.bio?.content} />
 
           {/* Contact section */}
+          <ContactSection content={content?.bio?.content} />
         </main>
 
         <footer className={styles.footer}></footer>

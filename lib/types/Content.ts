@@ -1,5 +1,3 @@
-export interface Content {
-  id: string;
-  section: string;
-  value: string;
+export interface Content<T> {
+  content: T;
 }

@@ -3,12 +3,13 @@ import React from "react";
 import { useStyles } from "./styles";
 
 export interface IProps {
-  title: string;
-  subtitle: string;
+  content: { title: string; subtitle: string };
 }
 
 export const HeroSection = (props: IProps) => {
-  const { title, subtitle } = props;
+  const {
+    content: { title, subtitle },
+  } = props;
   const { classes } = useStyles();
 
   return (
