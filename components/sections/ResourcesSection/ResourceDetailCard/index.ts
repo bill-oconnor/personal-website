@@ -1,0 +1,1 @@
+export { ResourceDetailCard } from "./ResourceDetailCard";
