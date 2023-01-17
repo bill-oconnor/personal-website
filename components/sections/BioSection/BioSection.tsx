@@ -23,7 +23,7 @@ export const BioSection = (props: IProps) => {
   const { content } = props;
 
   return (
-    <Section id="bio" className={classes.bioSection}>
+    <Section title="Bio" id="bio" className={classes.bioSection}>
       <Paper>
         <Container ml={0}>
           <div>
