@@ -19,13 +19,16 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
   ...htmlProps
 }) => {
   const { classes } = useStyles({ backgroundImage });
+  const wrapped = (section: JSX.Element) => {
+    if (className) {
+      return <div className={className}>{section}</div>;
+    } else {
+      return <>{section}</>;
+    }
+  };
 
-  return (
-    <section
-      className={classNames([classes.section, className].filter((i) => !!i))}
-      id={title}
-      {...htmlProps}
-    >
+  return wrapped(
+    <section className={classes.section} id={title} {...htmlProps}>
       <Box
         p="xs"
         sx={{
