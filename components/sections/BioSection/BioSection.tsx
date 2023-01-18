@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Content } from "../../../lib/types/Content";
 import { Section } from "../../common/layout/Section";
 import { useStyles } from "./styles";
+import ReactMarkdown from "react-markdown";
 
 enum TabName {
   BIO = "Where I've Been",
@@ -54,21 +55,27 @@ export const BioSection = (props: IProps) => {
               <Tabs.Panel className={classes.content} value={TabName.BIO}>
                 <ScrollArea>
                   <Container>
-                    <Stack>{content?.past}</Stack>
+                    <Stack>
+                      <ReactMarkdown>{content?.past}</ReactMarkdown>
+                    </Stack>
                   </Container>
                 </ScrollArea>
               </Tabs.Panel>
               <Tabs.Panel className={classes.content} value={TabName.CURRENT}>
                 <ScrollArea>
                   <Container>
-                    <Stack>{content?.present}</Stack>
+                    <Stack>
+                      <ReactMarkdown>{content?.present}</ReactMarkdown>
+                    </Stack>
                   </Container>
                 </ScrollArea>
               </Tabs.Panel>
               <Tabs.Panel className={classes.content} value={TabName.FUTURE}>
                 <ScrollArea>
                   <Container>
-                    <Stack>{content?.future}</Stack>
+                    <Stack>
+                      <ReactMarkdown>{content?.future}</ReactMarkdown>
+                    </Stack>
                   </Container>
                 </ScrollArea>
               </Tabs.Panel>

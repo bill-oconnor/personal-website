@@ -1,4 +1,12 @@
-import { Badge, Card, Group, Paper, Stack, Text } from "@mantine/core";
+import {
+  Badge,
+  Card,
+  Group,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Text,
+} from "@mantine/core";
 import {
   Blog,
   Content,
@@ -42,17 +50,17 @@ export const ResourcesSection = (props: IProps) => {
           title="Projects"
           renderChildren={(renderProps: ResourceRenderProps<Project>) => {
             return content?.projects?.length ? (
-              <>
+              <SimpleGrid cols={3}>
                 {content.projects.map((p: Project) => (
                   <ResourceCard key={p.id} resource={p} />
                 ))}
-              </>
+              </SimpleGrid>
             ) : (
               <EmptyResourceSection resourceName="projects" variety="WIP" />
             );
           }}
           renderResourceDetail={(projectData: Project) => {
-            return <ResourceCard resource={projectData} />;
+            return <ResourceDetailCard resource={projectData} />;
           }}
         />
         <ResourceSection
@@ -60,11 +68,11 @@ export const ResourcesSection = (props: IProps) => {
           title="Blogs + Essays"
           renderChildren={(renderProps: ResourceRenderProps<Blog>) => {
             return content?.blogs?.length ? (
-              <>
+              <SimpleGrid cols={3}>
                 {content.blogs.map((b: Blog) => (
                   <ResourceCard key={b.id} resource={b} />
                 ))}
-              </>
+              </SimpleGrid>
             ) : (
               <EmptyResourceSection resourceName="blog posts" variety="WIP" />
             );
@@ -78,17 +86,17 @@ export const ResourcesSection = (props: IProps) => {
           title="Courses + eBooks"
           renderChildren={(renderProps: ResourceRenderProps<Course>) => {
             return content?.courses?.length ? (
-              <>
+              <SimpleGrid cols={3}>
                 {content.courses.map((c: Course) => (
                   <ResourceCard key={c.id} resource={c} />
                 ))}
-              </>
+              </SimpleGrid>
             ) : (
               <EmptyResourceSection resourceName="courses" variety="WIP" />
             );
           }}
           renderResourceDetail={(courseData: Course) => {
-            return <ResourceCard resource={courseData} />;
+            return <ResourceDetailCard resource={courseData} />;
           }}
         />
         <ResourceSection
@@ -96,11 +104,11 @@ export const ResourcesSection = (props: IProps) => {
           title="Talks + Presentations"
           renderChildren={(renderProps: ResourceRenderProps<Course>) => {
             return content?.talks?.length ? (
-              <>
+              <SimpleGrid cols={3}>
                 {content.talks.map((t: Talk) => (
                   <ResourceCard key={t.id} resource={t} />
                 ))}
-              </>
+              </SimpleGrid>
             ) : (
               <EmptyResourceSection resourceName="talks" variety="n/a" />
             );

@@ -18,9 +18,11 @@ export const useStyles = createStyles((_theme, _params, _createRef) => ({
 
     width: "100vw",
 
-    paddingTop: "4rem",
+    position: "relative",
     paddingBottom: "6rem",
+    paddingTop: "18vh",
+    minHeight: "50vh",
 
-    color: _theme.colors.dark[4],
+    color: _theme.colors.dark[5],
   },
 }));
