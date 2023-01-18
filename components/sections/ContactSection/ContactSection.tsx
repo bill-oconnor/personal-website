@@ -13,8 +13,8 @@ import { Content } from "../../../lib/types/Content";
 import { Section } from "../../common/layout/Section";
 import { useForm } from "@mantine/form";
 interface ContactSectionContent {
-  prompt: string;
-  subPrompt?: string;
+  title: string;
+  subtitle?: string;
 }
 export type IProps = Content<ContactSectionContent>;
 
@@ -51,8 +51,14 @@ export const ContactSection = (props: IProps) => {
       backgroundImage="https://www.toptal.com/designers/subtlepatterns/uploads/tactile_noise.png"
     >
       <Box px="xl">
-        <Title order={2}>{content?.prompt}</Title>
-        <Text>{content?.subPrompt}</Text>
+        <Stack spacing={0} mb="lg">
+          <Title color="orange" order={2}>
+            {content?.title}
+          </Title>
+          <Text color="gray" size={14}>
+            {content?.subtitle}
+          </Text>
+        </Stack>
         <form onSubmit={form.onSubmit((values) => console.log(values))}>
           <Stack>
             <TextInput label="Email Address" {...emailProps}></TextInput>
