@@ -18,7 +18,7 @@ export const ResourceCard = (props: IProps) => {
         <Stack>
           <Text size="xl">{resource.title}</Text>
           <Group>
-            {resource.tags.map((t) => (
+            {resource.tags?.map((t) => (
               <Badge key={t} variant="light" color={"orange"}>
                 {t}
               </Badge>

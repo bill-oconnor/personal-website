@@ -11,9 +11,9 @@ enum TabName {
 }
 
 interface BioSectionContent {
-  past: { chunks: string[] };
-  present: { chunks: string[] };
-  future: { chunks: string[] };
+  past: string;
+  present: string;
+  future: string;
 }
 
 export type IProps = Content<BioSectionContent>;
@@ -54,33 +54,21 @@ export const BioSection = (props: IProps) => {
               <Tabs.Panel className={classes.content} value={TabName.BIO}>
                 <ScrollArea>
                   <Container>
-                    <Stack>
-                      {content?.past?.chunks?.map((chunk, i) => (
-                        <Text key={`past-${i}`}>{chunk}</Text>
-                      ))}
-                    </Stack>
+                    <Stack>{content?.past}</Stack>
                   </Container>
                 </ScrollArea>
               </Tabs.Panel>
               <Tabs.Panel className={classes.content} value={TabName.CURRENT}>
                 <ScrollArea>
                   <Container>
-                    <Stack>
-                      {content?.present?.chunks?.map((chunk, i) => (
-                        <Text key={`present-${i}`}>{chunk}</Text>
-                      ))}
-                    </Stack>
+                    <Stack>{content?.present}</Stack>
                   </Container>
                 </ScrollArea>
               </Tabs.Panel>
               <Tabs.Panel className={classes.content} value={TabName.FUTURE}>
                 <ScrollArea>
                   <Container>
-                    <Stack>
-                      {content?.future?.chunks?.map((chunk, i) => (
-                        <Text key={`future-${i}`}>{chunk}</Text>
-                      ))}
-                    </Stack>
+                    <Stack>{content?.future}</Stack>
                   </Container>
                 </ScrollArea>
               </Tabs.Panel>

@@ -1,5 +1,11 @@
 import { Badge, Card, Group, Paper, Stack, Text } from "@mantine/core";
-import { Blog, Content, Course, Project } from "../../../lib/types/Content";
+import {
+  Blog,
+  Content,
+  Course,
+  Project,
+  Talk,
+} from "../../../lib/types/Content";
 import { Section } from "../../common/layout/Section";
 import {
   ResourceSection,
@@ -14,12 +20,15 @@ interface ResourcesSectionContent {
   blogs: [];
   projects: [];
   courses: [];
+  talks: [];
 }
 export type IProps = Content<ResourcesSectionContent>;
 
 export const ResourcesSection = (props: IProps) => {
   const { classes } = useStyles();
   const { content } = props;
+
+  console.log("resource content", content);
 
   return (
     <Section
@@ -39,7 +48,7 @@ export const ResourcesSection = (props: IProps) => {
                 ))}
               </>
             ) : (
-              <EmptyResourceSection resourceName="projects" />
+              <EmptyResourceSection resourceName="projects" variety="WIP" />
             );
           }}
           renderResourceDetail={(projectData: Project) => {
@@ -57,7 +66,7 @@ export const ResourcesSection = (props: IProps) => {
                 ))}
               </>
             ) : (
-              <EmptyResourceSection resourceName="blog posts" />
+              <EmptyResourceSection resourceName="blog posts" variety="WIP" />
             );
           }}
           renderResourceDetail={(blogData: Blog) => {
@@ -75,7 +84,25 @@ export const ResourcesSection = (props: IProps) => {
                 ))}
               </>
             ) : (
-              <EmptyResourceSection resourceName="courses" />
+              <EmptyResourceSection resourceName="courses" variety="WIP" />
+            );
+          }}
+          renderResourceDetail={(courseData: Course) => {
+            return <ResourceCard resource={courseData} />;
+          }}
+        />
+        <ResourceSection
+          id="talks"
+          title="Talks + Presentations"
+          renderChildren={(renderProps: ResourceRenderProps<Course>) => {
+            return content?.talks?.length ? (
+              <>
+                {content.talks.map((t: Talk) => (
+                  <ResourceCard key={t.id} resource={t} />
+                ))}
+              </>
+            ) : (
+              <EmptyResourceSection resourceName="talks" variety="n/a" />
             );
           }}
           renderResourceDetail={(courseData: Course) => {
