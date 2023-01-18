@@ -17,9 +17,11 @@ export const ResourceCard = (props: IProps) => {
         </Card.Section>
       ) : null}
       <Card.Section px={14} py={8}>
-        <Stack>
-          <Text size="xl">{resource.title}</Text>
-          <Divider />
+        <Stack spacing="sm">
+          <Text weight={700} size="xl">
+            {resource.title}
+          </Text>
+          <Divider my={1} />
           {resource.tags?.length ? (
             <Group>
               {resource.tags?.map((t) => (
@@ -29,7 +31,7 @@ export const ResourceCard = (props: IProps) => {
               ))}
             </Group>
           ) : null}
-          <Text lineClamp={4} color="gray" size={14}>
+          <Text lineClamp={4} size={14}>
             {resource.description}
           </Text>
         </Stack>

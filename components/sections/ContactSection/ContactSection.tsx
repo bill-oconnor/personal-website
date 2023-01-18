@@ -47,7 +47,7 @@ export const ContactSection = (props: IProps) => {
   return (
     <Section
       id="contact"
-      title="Contact"
+      withPaper
       backgroundImage="https://www.toptal.com/designers/subtlepatterns/uploads/tactile_noise.png"
     >
       <Box px="xl">
@@ -55,9 +55,7 @@ export const ContactSection = (props: IProps) => {
           <Title color="orange" order={2}>
             {content?.title}
           </Title>
-          <Text color="gray" size={14}>
-            {content?.subtitle}
-          </Text>
+          <Text size={14}>{content?.subtitle}</Text>
         </Stack>
         <form onSubmit={form.onSubmit((values) => console.log(values))}>
           <Stack>

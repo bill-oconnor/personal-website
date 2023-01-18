@@ -19,7 +19,21 @@ const Home: NextPage<IProps> = (props: IProps) => {
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
-      theme={{ other: { contentWidth: 1200 } }}
+      theme={{
+        colorScheme: "dark",
+        black: "#101113" /* dark 9 */,
+        fontFamily:
+          "Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        headings: {
+          fontFamily: "Rowdies",
+          sizes: {
+            h1: {
+              fontSize: "4rem",
+            },
+          },
+        },
+        other: { contentWidth: 1200 },
+      }}
     >
       <div>
         <Head>
