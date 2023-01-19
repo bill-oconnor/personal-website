@@ -16,8 +16,8 @@ export const useStyles = createStyles<"section", any>((theme, params) => {
       },
     },
   };
-  if (params.backgroundImage) {
-    styles.section["backgroundImage"] = `url(${params.backgroundImage})`;
+  if (params.background) {
+    styles.section["background"] = params.background;
   }
 
   return styles;

@@ -24,12 +24,7 @@ export const BioSection = (props: IProps) => {
   const { content } = props;
 
   return (
-    <Section
-      title="Bio"
-      id="bio"
-      className={classes.bioSection}
-      backgroundImage="https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-dark.png"
-    >
+    <Section title="Bio" id="bio" className={classes.bioSection}>
       <Paper>
         <Container ml={0}>
           <div>

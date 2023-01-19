@@ -5,7 +5,7 @@ import { useStyles } from "./styles";
 
 interface IProps extends React.HTMLProps<HTMLDivElement> {
   title?: string;
-  backgroundImage?: string;
+  background?: string;
   styleParams?: CSSObject;
   className?: string;
   withPaper?: boolean;
@@ -16,11 +16,11 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
   children,
   styleParams = {},
   className,
-  backgroundImage,
+  background,
   withPaper,
   ...htmlProps
 }) => {
-  const { classes } = useStyles({ backgroundImage });
+  const { classes } = useStyles({ background });
   const wrappedContainer = (section: JSX.Element) => {
     if (className) {
       return <div className={className}>{section}</div>;

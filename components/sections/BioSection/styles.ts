@@ -5,6 +5,9 @@ export const useStyles = createStyles((_theme, _params, _createRef) => ({
     width: "100%",
     // height: 60vh,
     minHeight: 400,
+    background:
+      "rgba(0, 200, 255, 0.3) url(https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-dark.png)",
+    backgroundBlendMode: "color-burn",
   },
 
   content: {
