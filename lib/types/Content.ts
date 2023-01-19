@@ -9,6 +9,7 @@ export type Blog = {
   image: string;
   href: string;
   tags: string[];
+  type: "blog";
 };
 
 export type Course = {
@@ -18,6 +19,7 @@ export type Course = {
   image: string;
   href: string;
   tags: string[];
+  type: "course";
 };
 
 export type Project = {
@@ -27,6 +29,7 @@ export type Project = {
   image: string;
   href: string;
   tags: string[];
+  type: "project";
 };
 
 export type Talk = {
@@ -36,6 +39,7 @@ export type Talk = {
   image: string;
   href: string;
   tags: string[];
+  type: "talk";
 };
 
 export type Resource = Blog | Course | Project;

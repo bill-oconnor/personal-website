@@ -37,7 +37,7 @@ const Home: NextPage<IProps> = (props: IProps) => {
     >
       <div>
         <Head>
-          <title>Bill O&apos;Connor</title>
+          <title>&quot;hey&quot; - Bill O&apos;Connor</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 

@@ -25,7 +25,7 @@ const varietyMessageGenerator = (variety: EmptyMessageVariety) => {
 
 export const EmptyResourceSection = (props: IProps) => {
   return (
-    <Text color={"gray"} align="center" py="xl">
+    <Text align="center" py="xl">
       {varietyMessageGenerator(props.variety)(props.resourceName)}
     </Text>
   );

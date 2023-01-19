@@ -23,6 +23,7 @@ import {
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { useStyles } from "./styles";
 import { ResourceDetailCard } from "./ResourceDetailCard";
+import { ResourceGrid } from "./ResourceSection/ResourceGrid";
 
 interface ResourcesSectionContent {
   blogs: [];
@@ -50,16 +51,21 @@ export const ResourcesSection = (props: IProps) => {
           title="Projects"
           renderChildren={(renderProps: ResourceRenderProps<Project>) => {
             return content?.projects?.length ? (
-              <SimpleGrid cols={3}>
-                {content.projects.map((p: Project) => (
-                  <ResourceCard key={p.id} resource={p} />
+              <ResourceGrid>
+                {content.projects.map((c: Course) => (
+                  <ResourceCard
+                    onSelect={renderProps.setSelectedResource}
+                    key={c.id}
+                    resource={c}
+                  />
                 ))}
-              </SimpleGrid>
+              </ResourceGrid>
             ) : (
               <EmptyResourceSection resourceName="projects" variety="WIP" />
             );
           }}
           renderResourceDetail={(projectData: Project) => {
+            console.log("renderResourceDetail", projectData);
             return <ResourceDetailCard resource={projectData} />;
           }}
         />
@@ -68,11 +74,15 @@ export const ResourcesSection = (props: IProps) => {
           title="Blogs + Essays"
           renderChildren={(renderProps: ResourceRenderProps<Blog>) => {
             return content?.blogs?.length ? (
-              <SimpleGrid cols={3}>
+              <ResourceGrid>
                 {content.blogs.map((b: Blog) => (
-                  <ResourceCard key={b.id} resource={b} />
+                  <ResourceCard
+                    onSelect={renderProps.setSelectedResource}
+                    key={b.id}
+                    resource={b}
+                  />
                 ))}
-              </SimpleGrid>
+              </ResourceGrid>
             ) : (
               <EmptyResourceSection resourceName="blog posts" variety="WIP" />
             );
@@ -86,11 +96,15 @@ export const ResourcesSection = (props: IProps) => {
           title="Courses + eBooks"
           renderChildren={(renderProps: ResourceRenderProps<Course>) => {
             return content?.courses?.length ? (
-              <SimpleGrid cols={3}>
+              <ResourceGrid>
                 {content.courses.map((c: Course) => (
-                  <ResourceCard key={c.id} resource={c} />
+                  <ResourceCard
+                    onSelect={renderProps.setSelectedResource}
+                    key={c.id}
+                    resource={c}
+                  />
                 ))}
-              </SimpleGrid>
+              </ResourceGrid>
             ) : (
               <EmptyResourceSection resourceName="courses" variety="WIP" />
             );
@@ -104,17 +118,21 @@ export const ResourcesSection = (props: IProps) => {
           title="Talks + Presentations"
           renderChildren={(renderProps: ResourceRenderProps<Course>) => {
             return content?.talks?.length ? (
-              <SimpleGrid cols={3}>
-                {content.talks.map((t: Talk) => (
-                  <ResourceCard key={t.id} resource={t} />
+              <ResourceGrid>
+                {content?.talks.map((t: Talk) => (
+                  <ResourceCard
+                    onSelect={renderProps.setSelectedResource}
+                    key={t.id}
+                    resource={t}
+                  />
                 ))}
-              </SimpleGrid>
+              </ResourceGrid>
             ) : (
               <EmptyResourceSection resourceName="talks" variety="n/a" />
             );
           }}
           renderResourceDetail={(courseData: Course) => {
-            return <ResourceCard resource={courseData} />;
+            return <ResourceDetailCard resource={courseData} />;
           }}
         />
       </Paper>

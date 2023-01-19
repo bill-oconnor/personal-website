@@ -1,16 +1,25 @@
 import { Resource } from "../../../../lib/types/Content";
 import { Badge, Card, Divider, Group, Stack, Text } from "@mantine/core";
 import Image from "next/image";
+import { useStyles } from "./styles";
 
 export interface IProps {
   resource: Resource;
+  onSelect: (resource: Resource) => void;
 }
 
 export const ResourceCard = (props: IProps) => {
-  const { resource } = props;
+  const { resource, onSelect } = props;
+  const { classes } = useStyles();
 
   return (
-    <Card withBorder shadow={"md"} sx={{ maxWidth: 300, maxHeight: 400 }}>
+    <Card
+      className={classes.resourceCard}
+      withBorder
+      shadow={"sm"}
+      sx={{ maxHeight: 400 }}
+      onClick={() => onSelect(resource)}
+    >
       {resource.image ? (
         <Card.Section>
           <Image alt="" src={resource.image} />

@@ -24,9 +24,10 @@ export function ResourceSection<ResourceDataFormat>(
       <Title p="xs" underline align="center" order={4}>
         {title}
       </Title>
-      {selectedResource && renderResourceDetail
-        ? renderResourceDetail(selectedResource)
-        : null}
+
+      {selectedResource && renderResourceDetail ? (
+        <Container mb="md">{renderResourceDetail(selectedResource)}</Container>
+      ) : null}
       <Container>{renderChildren({ setSelectedResource })}</Container>
     </Paper>
   );
