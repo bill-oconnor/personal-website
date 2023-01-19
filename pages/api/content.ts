@@ -27,7 +27,6 @@ export default function handler(
     fetch(`${strapiURL}/resources`, options)
       .then((response) => response.json())
       .then((r) => {
-        console.log("Resources", r?.data);
         return r?.data
           ?.map((d: any) => {
             return d.attributes;
@@ -52,13 +51,11 @@ export default function handler(
     fetch(`${strapiURL}/section-copies`, options)
       .then((response) => response.json())
       .then((r) => {
-        console.log("Section Copy", r?.data);
         return r?.data;
       }),
     fetch(`${strapiURL}/bio`, options)
       .then((response) => response.json())
       .then((r) => {
-        console.log("Bio", r?.data?.attributes);
         return r?.data?.attributes;
       }),
   ]).then(([resources, sectionCopy, bio]) => {

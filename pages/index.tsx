@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import { ContactSection } from "../components/sections/ContactSection/ContactSection";
 import { ResourcesSection } from "../components/sections/ResourcesSection";
 import { Footer } from "../components/common/layout/Footer/Footer";
+import { getContentFromCMS } from "../lib/api/content";
 
 interface IProps {
   content: any;
@@ -63,9 +64,7 @@ export async function getStaticProps() {
   // formatted data
   // filter blogs for published
   // filter content for value present
-  const baseURL = "http://localhost:3000";
-  const contentURL = `${baseURL}/api/content`;
-  const content = await fetch(contentURL).then((r) => r.json());
+  const content = await getContentFromCMS();
 
   return {
     props: { content },

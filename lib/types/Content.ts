@@ -42,4 +42,4 @@ export type Talk = {
   type: "talk";
 };
 
-export type Resource = Blog | Course | Project;
+export type Resource = Blog | Course | Project | Talk;
