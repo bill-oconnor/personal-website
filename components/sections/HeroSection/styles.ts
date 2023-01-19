@@ -19,7 +19,7 @@ export const useStyles = createStyles((_theme, _params, _createRef) => ({
     width: "100vw",
 
     position: "relative",
-    paddingBottom: "6rem",
+    paddingBottom: "20vh",
     paddingTop: "14vh",
     minHeight: "50vh",
 
