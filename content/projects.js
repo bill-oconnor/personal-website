@@ -20,12 +20,12 @@ export const projects = [
     type: "project",
   },
   {
-    title: "Gmail Newsletter Dashboard",
+    title: "Newsletter Dashboard",
     id: "GND1",
     description:
-      "Gmail Newsletter Dashboard is a simple interface for browsing email newsletters, separate from the rest of our unrelated emails. Reading newsletters and checking emails are two different activities, and are more effectively treated by having separate interfaces.",
+      "Newsletter Dashboard is a simple interface for browsing email newsletters, separate from the rest of our unrelated emails. Reading newsletters and checking emails are two different activities, and are more effectively treated by having separate interfaces.",
     image: "",
-    href: "https://gmailnewsletterdashboard.com",
+    href: "https://newsletterdashboard.com",
     tags: [],
     type: "project",
   },
