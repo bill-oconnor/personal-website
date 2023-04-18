@@ -1,0 +1,23 @@
+import { Container, Stack, Text, Title } from "@mantine/core";
+import { Section } from "../../common/layout/Section";
+import { useStyles } from "./styles";
+
+interface IProps {}
+
+export const NewsletterSection = (props: IProps) => {
+  const {} = props;
+
+  const { classes } = useStyles();
+  return (
+    <Section className={classes.newsletterSection}>
+      <Container py="3rem">
+        <Stack align={"center"}>
+          <Title color={"orange.5"}>Sign Up for the Newsletter!</Title>
+          <Text color={"orange.5"}>
+            Get updates on what I write, read, learn, and build
+          </Text>
+        </Stack>
+      </Container>
+    </Section>
+  );
+};

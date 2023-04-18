@@ -1,22 +1,22 @@
 import { Resource } from "../../../../lib/types/Content";
-import { Badge, Card, Divider, Group, Stack, Text } from "@mantine/core";
+import { Badge, Card, Divider, Group, Stack, Text, Title } from "@mantine/core";
 import Image from "next/image";
 import { useStyles } from "./styles";
 
 export interface IProps {
   resource: Resource;
   onSelect: (resource: Resource) => void;
+  selected: boolean;
 }
 
 export const ResourceCard = (props: IProps) => {
-  const { resource, onSelect } = props;
-  const { classes } = useStyles();
+  const { resource, onSelect, selected } = props;
+  const { classes } = useStyles({ selected });
 
   return (
     <Card
       className={classes.resourceCard}
       withBorder
-      shadow={"sm"}
       sx={{ maxHeight: 400 }}
       onClick={() => onSelect(resource)}
     >
@@ -25,11 +25,9 @@ export const ResourceCard = (props: IProps) => {
           <Image alt="" src={resource.image} />
         </Card.Section>
       ) : null}
-      <Card.Section px={14} py={8}>
+      <Card.Section p={"1.4rem"}>
         <Stack spacing="sm">
-          <Text weight={700} size="xl">
-            {resource.title}
-          </Text>
+          <Title order={4}>{resource.title}</Title>
           <Divider my={1} />
           {resource.tags?.length ? (
             <Group>

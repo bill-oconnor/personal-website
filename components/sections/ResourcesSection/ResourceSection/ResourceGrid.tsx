@@ -1,7 +1,5 @@
 import { SimpleGrid } from "@mantine/core";
 import { PropsWithChildren } from "react";
-import { Resource } from "../../../../lib/types/Content";
-import { ResourceCard } from "../ResourceCard/ResourceCard";
 
 interface IProps {}
 

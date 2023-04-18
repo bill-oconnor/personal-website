@@ -8,7 +8,7 @@ export const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: theme.colors.dark[9],
-    color: theme.colors.dark[4],
+    color: theme.colors.dark[3],
 
     "& a": {
       display: "flex",

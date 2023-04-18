@@ -8,6 +8,7 @@ import { ContactSection } from "../components/sections/ContactSection/ContactSec
 import { ResourcesSection } from "../components/sections/ResourcesSection";
 import { Footer } from "../components/common/layout/Footer/Footer";
 import { getContentFromCMS } from "../lib/api/content";
+import { NewsletterSection } from "../components/sections/NewsletterSection";
 
 interface IProps {
   content: any;
@@ -26,7 +27,7 @@ const Home: NextPage<IProps> = (props: IProps) => {
         fontFamily:
           "Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         headings: {
-          fontFamily: "Rowdies",
+          fontFamily: "Coolvetica",
           sizes: {
             h1: {
               fontSize: "4rem",
@@ -38,7 +39,7 @@ const Home: NextPage<IProps> = (props: IProps) => {
     >
       <div>
         <Head>
-          <title>Bill O&apos;Connor&apos;s Landing Page</title>
+          <title>Bill O&apos;Connor</title>
           <link
             rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤘🏻</text></svg>"
@@ -48,10 +49,17 @@ const Home: NextPage<IProps> = (props: IProps) => {
         {/* Hero Section */}
 
         <main className={styles.main}>
-          <HeroSection content={content?.hero} />
-          <BioSection content={content?.bio} />
+          <HeroSection
+            content={{
+              title: "Hi, I'm Bill O'Connor 👋",
+              description:
+                "I am an independent, frontend-focused full-stack developer and consultant based in Austin, TX. I maintain a handful of projects, a blog, and a steady pursuit of knowledge, particularly as it pertains to personal and communal thriving. To learn more about my work and my thinking, explore the relevant sections below. If you find it interesting, I'd love to connect - reach out to me on Twitter or LinkedIn (links in the footer).",
+            }}
+          />
+          <NewsletterSection />
+          {/* <BioSection content={content?.bio} /> */}
           <ResourcesSection content={content?.resources} />
-          <ContactSection content={content?.contact} />
+          {/* <ContactSection content={content?.contact} /> */}
           <Footer />
         </main>
       </div>

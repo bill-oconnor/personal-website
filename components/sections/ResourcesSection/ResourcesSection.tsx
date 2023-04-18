@@ -24,6 +24,7 @@ import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { useStyles } from "./styles";
 import { ResourceDetailCard } from "./ResourceDetailCard";
 import { ResourceGrid } from "./ResourceSection/ResourceGrid";
+import { projects } from "../../../content/projects";
 
 interface ResourcesSectionContent {
   blogs: [];
@@ -46,17 +47,18 @@ export const ResourcesSection = (props: IProps) => {
       title="Resources"
     >
       <Paper>
-        <ResourceSection
+        <ResourceSection<Project>
           id="projects"
           title="Projects"
           renderChildren={(renderProps: ResourceRenderProps<Project>) => {
-            return content?.projects?.length ? (
+            return projects?.length ? (
               <ResourceGrid>
-                {content.projects.map((c: Course) => (
+                {(projects as Project[]).map((p: Project) => (
                   <ResourceCard
+                    selected={renderProps.selectedResourceId === p.id}
                     onSelect={renderProps.setSelectedResource}
-                    key={c.id}
-                    resource={c}
+                    key={p.id}
+                    resource={p}
                   />
                 ))}
               </ResourceGrid>
@@ -69,7 +71,7 @@ export const ResourcesSection = (props: IProps) => {
             return <ResourceDetailCard resource={projectData} />;
           }}
         />
-        <ResourceSection
+        <ResourceSection<Blog>
           id="blogs"
           title="Blogs + Essays"
           renderChildren={(renderProps: ResourceRenderProps<Blog>) => {
@@ -77,6 +79,7 @@ export const ResourcesSection = (props: IProps) => {
               <ResourceGrid>
                 {content.blogs.map((b: Blog) => (
                   <ResourceCard
+                    selected={renderProps.selectedResourceId === b.id}
                     onSelect={renderProps.setSelectedResource}
                     key={b.id}
                     resource={b}
@@ -91,7 +94,7 @@ export const ResourcesSection = (props: IProps) => {
             return <ResourceDetailCard resource={blogData} />;
           }}
         />
-        <ResourceSection
+        {/* <ResourceSection
           id="courses"
           title="Courses + eBooks"
           renderChildren={(renderProps: ResourceRenderProps<Course>) => {
@@ -99,6 +102,7 @@ export const ResourcesSection = (props: IProps) => {
               <ResourceGrid>
                 {content.courses.map((c: Course) => (
                   <ResourceCard
+                    selected={renderProps.selectedResourceId === c.id}
                     onSelect={renderProps.setSelectedResource}
                     key={c.id}
                     resource={c}
@@ -112,15 +116,16 @@ export const ResourcesSection = (props: IProps) => {
           renderResourceDetail={(courseData: Course) => {
             return <ResourceDetailCard resource={courseData} />;
           }}
-        />
-        <ResourceSection
+        /> */}
+        <ResourceSection<Talk>
           id="talks"
           title="Talks + Presentations"
-          renderChildren={(renderProps: ResourceRenderProps<Course>) => {
+          renderChildren={(renderProps: ResourceRenderProps<Talk>) => {
             return content?.talks?.length ? (
               <ResourceGrid>
                 {content?.talks.map((t: Talk) => (
                   <ResourceCard
+                    selected={renderProps.selectedResourceId === t.id}
                     onSelect={renderProps.setSelectedResource}
                     key={t.id}
                     resource={t}
@@ -131,7 +136,7 @@ export const ResourcesSection = (props: IProps) => {
               <EmptyResourceSection resourceName="talks" variety="n/a" />
             );
           }}
-          renderResourceDetail={(courseData: Course) => {
+          renderResourceDetail={(courseData: Talk) => {
             return <ResourceDetailCard resource={courseData} />;
           }}
         />

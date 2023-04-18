@@ -1,6 +1,9 @@
 import {
+  Box,
   Container,
   GroupedTransition,
+  Paper,
+  Stack,
   Text,
   Title,
   Transition,
@@ -11,7 +14,7 @@ import { Section } from "../../common/layout/Section";
 import { useStyles } from "./styles";
 
 export interface IProps {
-  content: { title: string; subtitle: string };
+  content: { title: string; description: string };
 }
 
 export const HeroSection = (props: IProps) => {
@@ -30,26 +33,37 @@ export const HeroSection = (props: IProps) => {
           mounted={mounted}
           transitions={{
             title: {
-              transition: "slide-up",
+              transition: "pop",
               duration: 800,
               timingFunction: "ease",
             },
-            subtitle: {
-              transition: "slide-up",
-              duration: 1200,
+            description: {
+              transition: "pop",
+              duration: 1600,
+              timingFunction: "ease",
+            },
+            section: {
+              transition: "pop",
+              duration: 600,
               timingFunction: "ease",
             },
           }}
         >
           {(styles) => (
-            <>
-              <Title style={styles.title} order={1}>
-                {content?.title ?? ""}
-              </Title>
-              <Text style={styles.subtitle} size="xl" weight={700}>
-                {content?.subtitle ?? ""}
-              </Text>
-            </>
+            <div style={styles.section}>
+              <Paper p="10rem" className={classes.content}>
+                <Stack>
+                  <Title style={styles.title} order={1}>
+                    {content?.title ?? ""}
+                  </Title>
+                  {content?.description.split(".").map((desc) => (
+                    <Text key={desc} style={styles.description} size="lg">
+                      {desc ?? ""}
+                    </Text>
+                  ))}
+                </Stack>
+              </Paper>
+            </div>
           )}
         </GroupedTransition>
       </Container>

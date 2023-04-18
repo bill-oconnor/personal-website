@@ -1,8 +1,10 @@
 import { Container, Paper, Title } from "@mantine/core";
 import { useState } from "react";
+import { useStyles } from "./styles";
 
 export type RenderProps<T> = {
   setSelectedResource: (r: T) => void;
+  selectedResourceId: string;
 };
 
 export type IProps<T> = {
@@ -18,17 +20,28 @@ export function ResourceSection<ResourceDataFormat>(
   const { title, id, renderResourceDetail, renderChildren } = props;
   const [selectedResource, setSelectedResource] =
     useState<ResourceDataFormat | null>(null);
-
+  const { classes } = useStyles();
   return (
-    <Paper id={id} withBorder mb="xs" pb="md">
-      <Title p="xs" underline align="center" order={4}>
+    <Paper
+      id={id}
+      className={classes.selectedResource}
+      mb="xs"
+      pb="md"
+      withBorder
+    >
+      <Title p="xs" underline align="center" order={3}>
         {title}
       </Title>
 
       {selectedResource && renderResourceDetail ? (
         <Container mb="md">{renderResourceDetail(selectedResource)}</Container>
       ) : null}
-      <Container>{renderChildren({ setSelectedResource })}</Container>
+      <Container>
+        {renderChildren({
+          setSelectedResource,
+          selectedResourceId: selectedResource?.id,
+        })}
+      </Container>
     </Paper>
   );
 }

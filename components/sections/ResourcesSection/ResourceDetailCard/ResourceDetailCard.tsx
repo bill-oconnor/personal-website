@@ -7,6 +7,7 @@ import {
   Group,
   Stack,
   Text,
+  Title,
 } from "@mantine/core";
 import Image from "next/image";
 import { useStyles } from "./styles";
@@ -20,26 +21,27 @@ export const ResourceDetailCard = (props: IProps) => {
   const { classes } = useStyles();
 
   return (
-    <Card withBorder p="xl">
+    <Card className={classes.resourceDetailCard} withBorder p="xl">
       {resource.image ? (
         <Card.Section>
           <Image alt="" src={resource.image} />
         </Card.Section>
       ) : null}
       <Stack>
-        <Text size="xl">{resource.title}</Text>
-        <Divider />
+        <Title order={3}>{resource.title}</Title>
         {resource.tags?.length ? (
-          <Group>
-            {resource.tags.map((t) => (
-              <Badge key={t} variant="light" color={"orange"}>
-                {t}
-              </Badge>
-            ))}
-          </Group>
-        ) : (
-          <Text size={"sm"}>No tags listed</Text>
-        )}
+          <>
+            <Divider />
+
+            <Group>
+              {resource.tags.map((t) => (
+                <Badge key={t} variant="light" color={"orange"}>
+                  {t}
+                </Badge>
+              ))}
+            </Group>
+          </>
+        ) : null}
         <Divider />
 
         <Text>{resource.description}</Text>
