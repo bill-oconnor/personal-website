@@ -11,7 +11,7 @@ const wipMessage = (resource: string) =>
   `Work in progress! No ${resource} to display. Hope to have em ready soon`;
 
 const naMessage = (_resource: string) =>
-  "None so far. If you like what I am about and would like to work together, please reach out via the contact form below";
+  "None so far. If you like what I am about and would like to work together, please reach out via LinkedIn or Twitter (links in footer)";
 
 const varietyMessageGenerator = (variety: EmptyMessageVariety) => {
   if (variety === "WIP") {

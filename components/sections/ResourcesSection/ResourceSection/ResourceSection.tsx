@@ -24,12 +24,12 @@ export function ResourceSection<ResourceDataFormat>(
   return (
     <Paper
       id={id}
-      className={classes.selectedResource}
+      className={classes.resourceSection}
       mb="xs"
       pb="md"
       withBorder
     >
-      <Title p="xs" underline align="center" order={3}>
+      <Title p="xl" underline align="center" order={3}>
         {title}
       </Title>
 
