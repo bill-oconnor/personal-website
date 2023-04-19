@@ -1,6 +1,15 @@
 import { Resource } from "../../../../lib/types/Content";
-import { Badge, Card, Divider, Group, Stack, Text, Title } from "@mantine/core";
-import Image from "next/image";
+import {
+  Badge,
+  Box,
+  Card,
+  Divider,
+  Group,
+  Stack,
+  Image,
+  Text,
+  Title,
+} from "@mantine/core";
 import { useStyles } from "./styles";
 
 export interface IProps {
@@ -17,12 +26,14 @@ export const ResourceCard = (props: IProps) => {
     <Card
       className={classes.resourceCard}
       withBorder
-      sx={{ maxHeight: 400 }}
+      sx={{ maxHeight: 800 }}
       onClick={() => onSelect(resource)}
     >
       {resource.image ? (
         <Card.Section>
-          <Image alt="" src={resource.image} />
+          <Box sx={{ height: 200 }}>
+            <Image alt="" src={resource.image} height={200} fit={"contain"} />
+          </Box>
         </Card.Section>
       ) : null}
       <Card.Section p={"1.4rem"}>

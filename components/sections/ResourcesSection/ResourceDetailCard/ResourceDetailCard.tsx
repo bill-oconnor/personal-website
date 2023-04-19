@@ -1,6 +1,7 @@
 import { Resource } from "../../../../lib/types/Content";
 import {
   Badge,
+  Box,
   Button,
   Card,
   Divider,
@@ -8,8 +9,8 @@ import {
   Stack,
   Text,
   Title,
+  Image,
 } from "@mantine/core";
-import Image from "next/image";
 import { useStyles } from "./styles";
 
 export interface IProps {
@@ -24,7 +25,9 @@ export const ResourceDetailCard = (props: IProps) => {
     <Card className={classes.resourceDetailCard} withBorder p="xl">
       {resource.image ? (
         <Card.Section>
-          <Image alt="" src={resource.image} />
+          <Box sx={{ height: 400 }}>
+            <Image alt="" src={resource.image} height={400} fit={"contain"} />
+          </Box>
         </Card.Section>
       ) : null}
       <Stack>

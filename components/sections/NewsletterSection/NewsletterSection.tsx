@@ -12,10 +12,17 @@ export const NewsletterSection = (props: IProps) => {
     <Section className={classes.newsletterSection}>
       <Container py="3rem">
         <Stack align={"center"}>
-          <Title color={"orange.5"}>Sign Up for the Newsletter!</Title>
-          <Text color={"orange.5"}>
+          <Title color={"indigo.3"}>Sign Up for the Newsletter!</Title>
+          <Text color={"indigo.3"} size="xl">
             Get updates on what I write, read, learn, and build
           </Text>
+          <iframe
+            src="https://billoconnor1.substack.com/embed"
+            width="780"
+            height="320"
+            frameBorder="0"
+            scrolling="no"
+          ></iframe>
         </Stack>
       </Container>
     </Section>

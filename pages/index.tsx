@@ -72,10 +72,16 @@ export async function getStaticProps() {
   // formatted data
   // filter blogs for published
   // filter content for value present
-  const content = await getContentFromCMS();
+  const blogPosts = await getContentFromCMS();
 
   return {
-    props: { content },
+    props: {
+      content: {
+        resources: {
+          blogs: blogPosts,
+        },
+      },
+    },
   };
 }
 
