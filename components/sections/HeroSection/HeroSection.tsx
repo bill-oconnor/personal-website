@@ -1,7 +1,9 @@
 import {
   Box,
   Container,
+  Group,
   GroupedTransition,
+  Image,
   Paper,
   Stack,
   Text,
@@ -47,12 +49,29 @@ export const HeroSection = (props: IProps) => {
               duration: 600,
               timingFunction: "ease",
             },
+            profPic: {
+              transition: "pop",
+              duration: 600,
+              timingFunction: "ease",
+            },
           }}
         >
           {(styles) => (
             <div style={styles.section}>
               <Paper p="10rem" className={classes.content}>
                 <Stack>
+                  <div style={styles.profPic}>
+                    <Group align={"center"} position="center">
+                      <Box className={classes.imageContainer}>
+                        <Image
+                          alt="My Face"
+                          fit={"contain"}
+                          src={"/headshot.jpg"}
+                        />
+                      </Box>
+                    </Group>
+                  </div>
+
                   <Title style={styles.title} order={1}>
                     {content?.title ?? ""}
                   </Title>

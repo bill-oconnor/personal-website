@@ -33,4 +33,10 @@ export const useStyles = createStyles((_theme, _params, _createRef) => ({
     background: `radial-gradient(rgba(10, 13, 14, 0.8) 50%, rgba(25, 28, 54, 0) 70%)`,
     borderRadius: "50%",
   },
+  imageContainer: {
+    borderRadius: "50%",
+    height: 164,
+    width: 164,
+    overflow: "hidden",
+  },
 }));
