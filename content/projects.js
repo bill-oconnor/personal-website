@@ -39,4 +39,14 @@ export const projects = [
     tags: [],
     type: "project",
   },
+  {
+    title: "My Full Time Jobs",
+    id: "FTJ",
+    description:
+      "To learn more about my full time work with Citadel, Balyasny, and The BHW Group checkout my LinkedIn profile.",
+    image: "",
+    href: "https://www.linkedin.com/in/william-o-connor512/",
+    tags: [],
+    type: "project",
+  },
 ];
