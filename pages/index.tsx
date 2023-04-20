@@ -53,7 +53,7 @@ const Home: NextPage<IProps> = (props: IProps) => {
             content={{
               title: "Hi, I'm Bill O'Connor 👋",
               description:
-                "I am an independent, frontend-focused full-stack developer and consultant based in Austin, TX. I maintain a handful of projects, a blog, and a steady pursuit of knowledge, particularly as it pertains to personal and communal thriving. To learn more about my work and my thinking, explore the relevant sections below. If you find it interesting, I'd love to connect - reach out to me on Twitter or LinkedIn (links in the footer).",
+                "I am an independent, frontend-focused full-stack developer based in Austin, TX. I maintain a handful of projects, a blog, and a steady pursuit of knowledge, particularly as it pertains to personal and communal thriving. To learn more about my work and my thinking, explore the relevant sections below. If you find it interesting, I'd love to connect - reach out to me on Twitter or LinkedIn (links in the footer).",
             }}
           />
           <NewsletterSection />
