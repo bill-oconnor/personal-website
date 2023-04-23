@@ -67,7 +67,7 @@ const Home: NextPage<IProps> = (props: IProps) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // TODO: this should all happen in a serverless function that returns
   // formatted data
   // filter blogs for published
