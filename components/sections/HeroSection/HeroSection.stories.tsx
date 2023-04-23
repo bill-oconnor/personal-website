@@ -23,7 +23,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   content: {
     title: "Hello, and welcome to my website",
-    subtitle:
+    description:
       "My name is Bill O'Connor. Read on to learn more about me and my work",
   },
 };
