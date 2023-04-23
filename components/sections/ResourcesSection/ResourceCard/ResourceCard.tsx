@@ -32,7 +32,7 @@ export const ResourceCard = (props: IProps) => {
       {resource.image ? (
         <Card.Section>
           <Box sx={{ height: 200 }}>
-            <Image alt="" src={resource.image} height={200} fit={"contain"} />
+            <Image alt="" src={resource.image} height={200} fit={"cover"} />
           </Box>
         </Card.Section>
       ) : null}

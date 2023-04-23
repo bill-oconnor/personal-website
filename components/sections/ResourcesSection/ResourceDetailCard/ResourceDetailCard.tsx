@@ -26,12 +26,14 @@ export const ResourceDetailCard = (props: IProps) => {
       {resource.image ? (
         <Card.Section>
           <Box sx={{ height: 400 }}>
-            <Image alt="" src={resource.image} height={400} fit={"contain"} />
+            <Image alt="" src={resource.image} height={400} fit={"cover"} />
           </Box>
         </Card.Section>
       ) : null}
       <Stack>
-        <Title order={3}>{resource.title}</Title>
+        <Title order={3} mt="2rem">
+          {resource.title}
+        </Title>
         {resource.tags?.length ? (
           <>
             <Divider />
