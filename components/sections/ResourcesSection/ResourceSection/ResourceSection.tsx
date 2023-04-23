@@ -4,7 +4,7 @@ import { useStyles } from "./styles";
 
 export type RenderProps<T> = {
   setSelectedResource: (r: T) => void;
-  selectedResourceId: string;
+  selectedResourceId?: string;
 };
 
 export type IProps<T> = {
@@ -14,7 +14,7 @@ export type IProps<T> = {
   renderResourceDetail?: (selectedResource: T) => JSX.Element;
 };
 
-export function ResourceSection<ResourceDataFormat>(
+export function ResourceSection<ResourceDataFormat extends { id: string }>(
   props: IProps<ResourceDataFormat>
 ) {
   const { title, id, renderResourceDetail, renderChildren } = props;

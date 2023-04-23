@@ -12,6 +12,7 @@ import {
   Content,
   Course,
   Project,
+  Resource,
   Talk,
 } from "../../../lib/types/Content";
 import { Section } from "../../common/layout/Section";
@@ -56,7 +57,9 @@ export const ResourcesSection = (props: IProps) => {
                 {(projects as Project[]).map((p: Project) => (
                   <ResourceCard
                     selected={renderProps.selectedResourceId === p.id}
-                    onSelect={renderProps.setSelectedResource}
+                    onSelect={(p: Resource) =>
+                      renderProps.setSelectedResource(p as Project)
+                    }
                     key={p.id}
                     resource={p}
                   />
@@ -80,7 +83,9 @@ export const ResourcesSection = (props: IProps) => {
                 {content.blogs.map((b: Blog) => (
                   <ResourceCard
                     selected={renderProps.selectedResourceId === b.id}
-                    onSelect={renderProps.setSelectedResource}
+                    onSelect={(b: Resource) =>
+                      renderProps.setSelectedResource(b as Blog)
+                    }
                     key={b.id}
                     resource={b}
                   />
@@ -126,7 +131,9 @@ export const ResourcesSection = (props: IProps) => {
                 {content?.talks.map((t: Talk) => (
                   <ResourceCard
                     selected={renderProps.selectedResourceId === t.id}
-                    onSelect={renderProps.setSelectedResource}
+                    onSelect={(t: Resource) =>
+                      renderProps.setSelectedResource(t as Talk)
+                    }
                     key={t.id}
                     resource={t}
                   />
