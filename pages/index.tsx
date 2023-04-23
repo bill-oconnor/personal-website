@@ -1,4 +1,4 @@
-import { MantineProvider } from "@mantine/core";
+import { Global, MantineProvider } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { BioSection } from "../components/sections/BioSection";
@@ -9,6 +9,7 @@ import { ResourcesSection } from "../components/sections/ResourcesSection";
 import { Footer } from "../components/common/layout/Footer/Footer";
 import { getContentFromCMS } from "../lib/api/content";
 import { NewsletterSection } from "../components/sections/NewsletterSection";
+import { fontFamilies } from "../styles/fontFamilies";
 
 interface IProps {
   content: any;
@@ -37,6 +38,7 @@ const Home: NextPage<IProps> = (props: IProps) => {
         other: { contentWidth: 1200 },
       }}
     >
+      <Global styles={fontFamilies}></Global>
       <div>
         <Head>
           <title>Bill O&apos;Connor</title>
