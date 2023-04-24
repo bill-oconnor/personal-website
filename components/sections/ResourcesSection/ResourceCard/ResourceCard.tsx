@@ -27,7 +27,9 @@ export const ResourceCard = (props: IProps) => {
       className={classes.resourceCard}
       withBorder
       sx={{ maxHeight: 800 }}
-      onClick={() => onSelect(resource)}
+      onClick={() => {
+        onSelect(resource);
+      }}
     >
       {resource.image ? (
         <Card.Section>

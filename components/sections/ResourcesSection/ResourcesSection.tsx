@@ -26,6 +26,8 @@ import { useStyles } from "./styles";
 import { ResourceDetailCard } from "./ResourceDetailCard";
 import { ResourceGrid } from "./ResourceSection/ResourceGrid";
 import { projects } from "../../../content/projects";
+import { useBreakpoint } from "../../../lib/hooks/useBreakpoint";
+import breakpoints from "../../../constants/breakpoints";
 
 interface ResourcesSectionContent {
   blogs: [];
@@ -36,10 +38,9 @@ interface ResourcesSectionContent {
 export type IProps = Content<ResourcesSectionContent>;
 
 export const ResourcesSection = (props: IProps) => {
+  const breakpoint = useBreakpoint();
   const { classes } = useStyles();
   const { content } = props;
-
-  console.log("resource content", content);
 
   return (
     <Section
@@ -47,14 +48,17 @@ export const ResourcesSection = (props: IProps) => {
       id="resources"
       title="Resources"
     >
-      <Paper>
-        <ResourceSection<Project>
-          id="projects"
-          title="Projects"
-          renderChildren={(renderProps: ResourceRenderProps<Project>) => {
-            return projects?.length ? (
-              <ResourceGrid>
-                {(projects as Project[]).map((p: Project) => (
+      <ResourceSection<Project>
+        id="projects"
+        title="Projects"
+        renderChildren={(renderProps: ResourceRenderProps<Project>) => {
+          return projects?.length ? (
+            <ResourceGrid>
+              {(projects as Project[]).map((p: Project) =>
+                breakpoint < breakpoints.MEDIUM &&
+                renderProps.selectedResourceId === p.id ? (
+                  <ResourceDetailCard resource={p} />
+                ) : (
                   <ResourceCard
                     selected={renderProps.selectedResourceId === p.id}
                     onSelect={(p: Resource) =>
@@ -63,24 +67,30 @@ export const ResourcesSection = (props: IProps) => {
                     key={p.id}
                     resource={p}
                   />
-                ))}
-              </ResourceGrid>
-            ) : (
-              <EmptyResourceSection resourceName="projects" variety="WIP" />
-            );
-          }}
-          renderResourceDetail={(projectData: Project) => {
-            console.log("renderResourceDetail", projectData);
-            return <ResourceDetailCard resource={projectData} />;
-          }}
-        />
-        <ResourceSection<Blog>
-          id="blogs"
-          title="Blogs + Essays"
-          renderChildren={(renderProps: ResourceRenderProps<Blog>) => {
-            return content?.blogs?.length ? (
-              <ResourceGrid>
-                {content.blogs.map((b: Blog) => (
+                )
+              )}
+            </ResourceGrid>
+          ) : (
+            <EmptyResourceSection resourceName="projects" variety="WIP" />
+          );
+        }}
+        renderResourceDetail={(projectData: Project) => {
+          return breakpoint >= breakpoints.MEDIUM ? (
+            <ResourceDetailCard resource={projectData} />
+          ) : null;
+        }}
+      />
+      <ResourceSection<Blog>
+        id="blogs"
+        title="Blogs + Essays"
+        renderChildren={(renderProps: ResourceRenderProps<Blog>) => {
+          return content?.blogs?.length ? (
+            <ResourceGrid>
+              {content.blogs.map((b: Blog) =>
+                breakpoint < breakpoints.MEDIUM &&
+                renderProps.selectedResourceId === b.id ? (
+                  <ResourceDetailCard resource={b} />
+                ) : (
                   <ResourceCard
                     selected={renderProps.selectedResourceId === b.id}
                     onSelect={(b: Resource) =>
@@ -89,17 +99,20 @@ export const ResourcesSection = (props: IProps) => {
                     key={b.id}
                     resource={b}
                   />
-                ))}
-              </ResourceGrid>
-            ) : (
-              <EmptyResourceSection resourceName="blog posts" variety="WIP" />
-            );
-          }}
-          renderResourceDetail={(blogData: Blog) => {
-            return <ResourceDetailCard resource={blogData} />;
-          }}
-        />
-        {/* <ResourceSection
+                )
+              )}
+            </ResourceGrid>
+          ) : (
+            <EmptyResourceSection resourceName="blog posts" variety="WIP" />
+          );
+        }}
+        renderResourceDetail={(blogData: Blog) => {
+          return breakpoint >= breakpoints.MEDIUM ? (
+            <ResourceDetailCard resource={blogData} />
+          ) : null;
+        }}
+      />
+      {/* <ResourceSection
           id="courses"
           title="Courses + eBooks"
           renderChildren={(renderProps: ResourceRenderProps<Course>) => {
@@ -119,16 +132,20 @@ export const ResourcesSection = (props: IProps) => {
             );
           }}
           renderResourceDetail={(courseData: Course) => {
-            return <ResourceDetailCard resource={courseData} />;
+            return breakpoint >= breakpoints.MEDIUM ? <ResourceDetailCard resource={courseData} /> : null;
           }}
         /> */}
-        <ResourceSection<Talk>
-          id="talks"
-          title="Talks + Presentations"
-          renderChildren={(renderProps: ResourceRenderProps<Talk>) => {
-            return content?.talks?.length ? (
-              <ResourceGrid>
-                {content?.talks.map((t: Talk) => (
+      <ResourceSection<Talk>
+        id="talks"
+        title="Talks + Presentations"
+        renderChildren={(renderProps: ResourceRenderProps<Talk>) => {
+          return content?.talks?.length ? (
+            <ResourceGrid>
+              {content?.talks.map((t: Talk) =>
+                breakpoint < breakpoints.MEDIUM &&
+                renderProps.selectedResourceId === t.id ? (
+                  <ResourceDetailCard resource={t} />
+                ) : (
                   <ResourceCard
                     selected={renderProps.selectedResourceId === t.id}
                     onSelect={(t: Resource) =>
@@ -137,17 +154,19 @@ export const ResourcesSection = (props: IProps) => {
                     key={t.id}
                     resource={t}
                   />
-                ))}
-              </ResourceGrid>
-            ) : (
-              <EmptyResourceSection resourceName="talks" variety="n/a" />
-            );
-          }}
-          renderResourceDetail={(courseData: Talk) => {
-            return <ResourceDetailCard resource={courseData} />;
-          }}
-        />
-      </Paper>
+                )
+              )}
+            </ResourceGrid>
+          ) : (
+            <EmptyResourceSection resourceName="talks" variety="n/a" />
+          );
+        }}
+        renderResourceDetail={(courseData: Talk) => {
+          return breakpoint >= breakpoints.MEDIUM ? (
+            <ResourceDetailCard resource={courseData} />
+          ) : null;
+        }}
+      />
     </Section>
   );
 };

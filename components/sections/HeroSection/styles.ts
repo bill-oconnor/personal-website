@@ -1,6 +1,22 @@
 import { createStyles } from "@mantine/core";
+import breakpoints, {
+  getBreakpointForSize,
+} from "../../../constants/breakpoints";
 
-export const useStyles = createStyles((_theme, _params, _createRef) => ({
+function contentPadding(breakpoint: number) {
+  if (breakpoint === breakpoints.LARGE) {
+    return "10rem";
+  } else if (breakpoint === breakpoints.MEDIUM) {
+    return "4rem 6rem";
+  } else {
+    return "1rem 3rem";
+  }
+}
+
+export const useStyles = createStyles<
+  "heroSection" | "content" | "imageContainer",
+  { breakpoint: number }
+>((theme, params, _createRef) => ({
   heroSection: {
     // backgroundColor: "#ff5a00" /* fallback */,
     // /* from https://colorgradient.dev/gradient-generator */
@@ -29,9 +45,12 @@ export const useStyles = createStyles((_theme, _params, _createRef) => ({
     minHeight: "80vh",
   },
   content: {
-    color: _theme.colors.orange[4],
-    background: `radial-gradient(rgba(10, 13, 14, 0.8) 50%, rgba(25, 28, 54, 0) 70%)`,
-    borderRadius: "50%",
+    color: theme.colors.orange[4],
+    background: `radial-gradient(rgba(10, 13, 14, 0.8) 50%, rgba(25, 28, 54, 0) ${
+      params.breakpoint >= breakpoints.LARGE ? "70%" : "90%"
+    })`,
+    borderRadius: params.breakpoint >= breakpoints.LARGE ? "50%" : 8,
+    padding: contentPadding(params.breakpoint),
   },
   imageContainer: {
     borderRadius: "50%",

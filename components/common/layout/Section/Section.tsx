@@ -1,7 +1,10 @@
 import { Box, CSSObject, Paper, Title } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
-import classNames from "classnames";
 import { useStyles } from "./styles";
+import breakpoints, {
+  getBreakpointForSize,
+} from "../../../../constants/breakpoints";
+import { useBreakpoint } from "../../../../lib/hooks/useBreakpoint";
 
 interface IProps extends React.HTMLProps<HTMLDivElement> {
   title?: string;
@@ -20,7 +23,9 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
   withPaper,
   ...htmlProps
 }) => {
-  const { classes } = useStyles({ background });
+  const breakpoint = useBreakpoint();
+  const { classes } = useStyles({ background, breakpoint });
+
   const wrappedContainer = (section: JSX.Element) => {
     if (className) {
       return <div className={className}>{section}</div>;
@@ -29,7 +34,10 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
     }
   };
   const wrappedContent = (content: JSX.Element) => {
-    if (title || withPaper) {
+    if (
+      (title || withPaper) &&
+      (breakpoint === breakpoints.LARGE || breakpoint === breakpoints.MEDIUM)
+    ) {
       return (
         <Paper
           py="md"
@@ -63,7 +71,7 @@ export const Section: React.FC<PropsWithChildren<IProps>> = ({
         {wrappedContent(
           <>
             {title ? (
-              <Title className="section-title" order={3} mb="md">
+              <Title className={classes.sectionTitle} order={3} mb="md">
                 {title}
               </Title>
             ) : null}

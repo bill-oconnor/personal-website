@@ -8,10 +8,10 @@ import {
   Stack,
   Text,
   Title,
-  Transition,
 } from "@mantine/core";
-import { transitions } from "@mantine/core/lib/Transition/transitions";
 import React, { useEffect, useState } from "react";
+import { useBreakpoint } from "../../../lib/hooks/useBreakpoint";
+
 import { Section } from "../../common/layout/Section";
 import { useStyles } from "./styles";
 
@@ -21,7 +21,8 @@ export interface IProps {
 
 export const HeroSection = (props: IProps) => {
   const { content } = props;
-  const { classes } = useStyles();
+  const breakpoint = useBreakpoint();
+  const { classes } = useStyles({ breakpoint });
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -58,7 +59,7 @@ export const HeroSection = (props: IProps) => {
         >
           {(styles) => (
             <div style={styles.section}>
-              <Paper p="10rem" className={classes.content}>
+              <Paper className={classes.content}>
                 <Stack>
                   <div style={styles.profPic}>
                     <Group align={"center"} position="center">
