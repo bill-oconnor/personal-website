@@ -51,7 +51,7 @@ export const ResourceDetailCard = (props: IProps) => {
             <>
               <Divider />
 
-              <Group>
+              <Group spacing={2}>
                 {resource.tags.map((t) => (
                   <Badge key={t} variant="light" color={"orange"}>
                     {t}

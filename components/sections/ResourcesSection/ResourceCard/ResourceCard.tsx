@@ -43,9 +43,9 @@ export const ResourceCard = (props: IProps) => {
           <Title order={4}>{resource.title}</Title>
           <Divider my={1} />
           {resource.tags?.length ? (
-            <Group>
+            <Group spacing={2}>
               {resource.tags?.map((t) => (
-                <Badge key={t} variant="light" color={"orange"}>
+                <Badge my={2} key={t} variant="light" color={"orange"}>
                   {t}
                 </Badge>
               ))}
