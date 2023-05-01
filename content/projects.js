@@ -23,9 +23,9 @@ export const projects = [
     title: "Newsletter Dashboard",
     id: "GND1",
     description:
-      "Newsletter Dashboard is a simple interface for browsing email newsletters, separate from the rest of our unrelated emails. Reading newsletters and checking emails are two different activities, and are more effectively treated by having separate interfaces. I use it daily, and plan to release it soon.",
+      "Newsletter Dashboard is a simple interface for browsing email newsletters, separate from the rest of your unrelated emails. Reading newsletters and checking emails are two different activities, and are more effectively treated by having separate interfaces.",
     image: "/newsletter-dashboard.png",
-    href: "",
+    href: "https://newsletterdashboard.com",
     tags: ["Work in Progress"],
     type: "project",
   },
