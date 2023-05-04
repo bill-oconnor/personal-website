@@ -10,12 +10,12 @@ export const projects = [
     type: "project",
   },
   {
-    title: "Bitcoin for Normies",
+    title: "Bitcoin 4 Normies",
     id: "BFN1",
     description:
-      "Bitcoin for Normies is a guide to Bitcoin for people who want to understand, but aren't ready to read a whole book and are tired of crypto bros. This is an underserved group that needs targeted Bitcoin education materials.",
+      "Bitcoin 4 Normies is a guide to Bitcoin for people who want to understand, but aren't ready to read a whole book and are tired of crypto bros. This is an underserved group that needs targeted Bitcoin education materials.",
     image: "/bitcoin-for-normies.png",
-    href: "https://bitcoinfornormies.com",
+    href: "https://bitcoin4normies.com",
     tags: ["Work in Progress"],
     type: "project",
   },
