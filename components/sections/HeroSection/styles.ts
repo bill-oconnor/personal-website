@@ -14,7 +14,7 @@ function contentPadding(breakpoint: number) {
 }
 
 export const useStyles = createStyles<
-  "heroSection" | "content" | "imageContainer",
+  "heroSection" | "content" | "imageContainer" | "title",
   { breakpoint: number }
 >((theme, params, _createRef) => ({
   heroSection: {
@@ -45,7 +45,7 @@ export const useStyles = createStyles<
     minHeight: "80vh",
   },
   content: {
-    color: theme.colors.orange[4],
+    color: theme.colors.orange[3],
     background: `radial-gradient(rgba(10, 13, 14, 0.8) 50%, rgba(25, 28, 54, 0) ${
       params.breakpoint >= breakpoints.LARGE ? "70%" : "90%"
     })`,
@@ -57,5 +57,8 @@ export const useStyles = createStyles<
     height: 164,
     width: 164,
     overflow: "hidden",
+  },
+  title: {
+    color: theme.colors.orange[5],
   },
 }));

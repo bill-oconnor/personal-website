@@ -73,7 +73,11 @@ export const HeroSection = (props: IProps) => {
                     </Group>
                   </div>
 
-                  <Title style={styles.title} order={1}>
+                  <Title
+                    style={styles.title}
+                    className={classes.title}
+                    order={1}
+                  >
                     {content?.title ?? ""}
                   </Title>
                   {content?.description.split(".").map((desc) => (
