@@ -20,13 +20,13 @@ export const projects = [
     type: "project",
   },
   {
-    title: "Bitcoin 4 Normies",
-    id: "BFN1",
+    title: "Casual Bitcoiner Newsletter",
+    id: "CB1",
     description:
-      "Bitcoin 4 Normies is a guide to Bitcoin for people who want to understand, but aren't ready to read a whole book and are tired of crypto bros. This is an underserved group that needs targeted Bitcoin education materials.",
-    image: "/bitcoin-for-normies.png",
-    href: "https://bitcoin4normies.com",
-    tags: ["Work in Progress"],
+      "Casual Bitcoiner is a weekly email newsletter that offer a very short, digestible, enjoyable update on what is going on in Bitcoin and education on important concepts for an audience who has taken the orange pill but has not taken the plunge into the rabbit hole.",
+    image: "/casualbitcoiner.png",
+    href: "https://casualbitcoiner.com",
+    tags: [],
     type: "project",
   },
   {
